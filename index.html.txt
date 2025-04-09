@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecren’ime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
+      font-family: 'Great Vibes', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 2em;
+      color: #6a1b9a;
+    }
+
+    .audio-frame {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ecren’ime</h1>
+    <p>Seni çok seviyorum</p>
+  </div>
+
+  <!-- YouTube embed with autoplay -->
+  <iframe class="audio-frame" src="https://www.youtube.com/embed/hzmjIA6266Y?autoplay=1&loop=1&playlist=hzmjIA6266Y" 
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <script>
+    // YouTube autoplay still needs user interaction on mobile sometimes
+    document.addEventListener('click', () => {
+      const iframe = document.querySelector('.audio-frame');
+      const src = iframe.src;
+      iframe.src = ''; // restart iframe to force play
+      iframe.src = src;
+    });
+  </script>
+</body>
+</html>
